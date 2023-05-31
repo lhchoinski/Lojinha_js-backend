@@ -9,45 +9,33 @@ class ProdutoController {
     
     }
     async salvar(req, res){
-        const {nome,descricao,marca,preco,qtda} = req.body
-
-        // gerador de id
-        const obj = await produtoModel.findOne({}).sort({'idProduto': -1});  
-
-        const produto = {
-            idProduto: obj == null ? 1 : obj.idProduto + 1,
-            nome,
-            descricao,
-            marca,
-            preco ,
-            qtda,
-        }
+       
+        const produto = req.body
         const resultado = await produtoModel.create(produto)
-
         res.send({
-            message: "Produto cadastrado com sucesso!",
-            produto: resultado
+            message: "produto cadastrado com sucesso!",
+            usuario: resultado
         }) 
     }
     async excluir(req, res){
-        const id = req.params.id
-        const _id = (await produtoModel.findOne({'idProduto' : id}))._id;
+        const id = req.params._id
+        const _id = (await produtoModel.findOne({'_id' : id}))._id;
         await produtoModel.findByIdAndDelete(String(_id))
         res.send({
-            message: "Tarefa excluída!"
+            message: "Produto excluída!"
         })
     }
 
     async buscarPorId(req, res){
-        const id = req.params.id
-        const produto = await produtoModel.findOne({'idProduto': id})
+        const id = req.params._id
+        const produto = await produtoModel.findOne({'_id': id})
         res.json(produto)
     }
 
     async atualizar(req, res){
-        const id = req.params.id
+        const id = req.params._id
         const produto = req.body
-        const _id = (await produtoModel.findOne({'idProduto' : id}))._id;
+        const _id = (await produtoModel.findOne({'_id' : id}))._id;
         await produtoModel.findByIdAndUpdate(String(_id), produto)
         res.send({
             message: "produto atualizado com sucesso!",

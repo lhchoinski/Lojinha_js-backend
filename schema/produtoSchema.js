@@ -8,7 +8,6 @@ const produtoSchema = new Schema({
     descricao: String,
     marca: String,
     preco: String,
-    qtda: String
 })
 
 module.exports = produtoSchema

@@ -4,9 +4,9 @@ const router = express.Router()
 
 router.post('/cadastro', clienteController.cadastrar)
 router.get('/listar', clienteController.listar)
-router.get('/listar/:id', clienteController.buscarPorId)
-router.put('/atualizar/:id', clienteController.atualizar)
-router.put('/addproduto/:id', clienteController.addTarefa)
-router.delete('/excluir/:id', clienteController.excluir)
+router.get('/listar/:_id', clienteController.buscarPorId)
+router.put('/atualizar/:_id', clienteController.atualizar)
+router.put('/addproduto/:_id', clienteController.addProduto)
+router.delete('/excluir/:_id', clienteController.excluir)
 
 module.exports = router;

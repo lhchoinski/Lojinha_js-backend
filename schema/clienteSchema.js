@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const produtoSchema = require('./produtoSchema');
 
 const Schema = mongoose.Schema;
 
@@ -8,8 +9,11 @@ const clienteShema = new Schema({
     endereco: String,
     data_nasc: String,
     cpf: Number,
-    contato: Number,  
-
+    contato: Number, 
+    produtos:{
+        type:[produtoSchema]
+    }
+ 
 });
 
 module.exports = clienteShema;
