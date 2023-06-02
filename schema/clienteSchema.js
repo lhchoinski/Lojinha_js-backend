@@ -10,9 +10,7 @@ const clienteShema = new Schema({
     data_nasc: String,
     cpf: Number,
     contato: Number, 
-    produtos:{
-        type:[produtoSchema]
-    }
+
  
 });
 
