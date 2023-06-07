@@ -1,9 +1,11 @@
 const express = require('express');
 const srv = express();
+const cors = require('cors')
 
 srv.use(express.json());
+srv.use(cors());
 
-srv.listen(3001, function() {console.log('Servidor rodando na porta 3000!');
+srv.listen(3000, function() {console.log('Servidor rodando na porta 3000!');
 });
 srv.use(express.json());
 
