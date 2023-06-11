@@ -11,9 +11,11 @@ srv.use(express.json());
 
 const produtoRouter = require('./router/produtoRouter');
 const clienteRouter = require('./router/clienteRouter');
+const pedidoRouter = require('./router/pedidoRouter')
 
 
 srv.use('/produto',produtoRouter)
+srv.use('/pedido',pedidoRouter)
 srv.use('/cliente',clienteRouter)
 
 
