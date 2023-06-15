@@ -31,8 +31,6 @@ class ClienteController{
         const id = req.params._id 
         const cliente = req.body 
 
-        
-
         const _id = (await clienteModel.findOne({'_id' : id}))._id
         await clienteModel.findByIdAndUpdate(String(_id), cliente) 
         res.send({
